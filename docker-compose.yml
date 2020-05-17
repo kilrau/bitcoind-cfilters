@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  mainnet:
+    image: kilrau/bitcoind:cfilters
+    #image: bitcoind:cfilters
+    environment:
+      - USER_UID=1001
+      - USER_GID=1001
+    restart: always
+    volumes:
+      - /media/HDD/bitcoind:/root/.bitcoin
+    ports:
+      - "8333:8333"
+    command:
+      -blockfilterindex
+      -peercfilters
+
+#  testnet:
+#    image: kilrau/bitcoind:cfilters
+#    #image: bitcoind:cfilters
+#    environment:
+#      - USER_UID=1001
+#      - USER_GID=1001
+#    restart: always
+#    volumes:
+#      - /media/HDD/bitcoind:/root/.bitcoin
+#    ports:
+#      - "18333:18333"
+#    command:
+#      -testnet
+#      -blockfilterindex
+#      -peercfilters
