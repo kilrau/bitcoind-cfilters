@@ -8,7 +8,7 @@
 - `docker --version` 18.06.0+
 - 500 GB free disk space, better more
 
-### Option 0: Use pre-built images
+## Option a: Use pre-built images
 - download above `docker-compose.yml` file, e.g. with
 ```
 curl https://raw.githubusercontent.com/kilrau/bitcoind-cfilters/master/docker-compose.yml -o ~/docker-compose.yml
@@ -18,7 +18,7 @@ curl https://raw.githubusercontent.com/kilrau/bitcoind-cfilters/master/docker-co
 - `docker-compose up -d`
 - once it's synced, add your node to [the list](./mainnet).
 
-### Option 1: Don't trust, build yourself
+## Option b: Don't trust, build yourself
 - download above `Dockerfile` or just clone the repo with `git clone https://github.com/kilrau/bitcoind-cfilters`
 - check the `Dockerfile` and see for yourself that it is indeed building https://github.com/jimpo/bitcoin/tree/bip157-net
 - `docker build . -t bitcoind && docker tag bitcoind:latest bitcoind:cfilters` (the build takes a moment)
@@ -26,12 +26,12 @@ curl https://raw.githubusercontent.com/kilrau/bitcoind-cfilters/master/docker-co
 - `docker-compose up -d`
 - once it's synced, add your node to [the list](./mainnet).
 
-Tipps 'n Tricks:
+### Tipps 'n Tricks:
 - you can run `bitcoin-cli` commands, e.g. `bitcoin-cli getblockchaininfo` using `docker exec -it bitcoind_mainnet_1 bitcoin-cli getblockchaininfo` to e.g. check on the sync progress
 - known issue: when you need to restart an in-sync node on this branch, you'll have to temporarily remove the `-peercfilters` option, wait until the sync is done and then add it back
 - to serve cfilters on bitcoin testnet, simply uncomment the lines in the docker-compose file
 
-TODO:
+### TODO:
 - [x] basic docker setup
 - [ ] add tor
 - [ ] monitor progress of [PR 18876](https://github.com/bitcoin/bitcoin/pull/18876), change images to bitcoin core master once everything is in
