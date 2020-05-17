@@ -35,4 +35,4 @@ curl https://raw.githubusercontent.com/kilrau/bitcoind-cfilters/master/docker-co
 - [x] basic docker setup
 - [ ] add tor
 - [ ] monitor progress of [PR 18876](https://github.com/bitcoin/bitcoin/pull/18876), change images to bitcoin core master once everything is in
-- [ ] add dns seed entries to btcd/neutrino serving lists above
+- [ ] add dns seed entries to btcd/neutrino serving lists above, open to ideas how else cfilter nodes could be served upfront without requiring `neutrino.addpeer`
