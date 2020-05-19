@@ -22,7 +22,7 @@ curl https://raw.githubusercontent.com/kilrau/bitcoind-cfilters/master/docker-co
 - download above `Dockerfile` or just clone the repo with `git clone https://github.com/kilrau/bitcoind-cfilters`
 - check the `Dockerfile` and see for yourself that it is indeed building https://github.com/jimpo/bitcoin/tree/bip157-net
 - `docker build . -t bitcoind && docker tag bitcoind:latest bitcoind:cfilters` (the build takes a moment)
-- in `docker-compose.yml` remove the line `image: kilrau/bitcoind:cfilters` and uncomment the next line to use your local image andadjust `PID` & `GID` to the docker user's (`id -u <dockeruser> && id -g <dockeruser>`)
+- in `docker-compose.yml` remove the line `image: kilrau/bitcoind:cfilters` and uncomment the next line to use your local image and adjust `PID` & `GID` to the docker user's (`id -u <dockeruser> && id -g <dockeruser>`)
 - `docker-compose up -d`
 - once it's synced, add your node to [the list](./mainnet).
 
@@ -35,4 +35,4 @@ curl https://raw.githubusercontent.com/kilrau/bitcoind-cfilters/master/docker-co
 - [x] basic docker setup
 - [ ] add tor
 - [ ] monitor progress of [PR 18876](https://github.com/bitcoin/bitcoin/pull/18876), change images to bitcoin core master once everything is in
-- [ ] add dns seed entries to btcd/neutrino serving lists above
+- [ ] add dns seed entries to btcd/neutrino serving lists above, open to ideas how else cfilter nodes could be served upfront without requiring `neutrino.addpeer`
