@@ -26,7 +26,7 @@ curl https://raw.githubusercontent.com/kilrau/bitcoind-cfilters/master/docker-co
 - `docker-compose up -d`
 - once it's synced, add your node to [the list](./mainnet).
 
-### Tipps 'n Tricks:
+### Tips 'n Tricks:
 - you can run `bitcoin-cli` commands, e.g. `bitcoin-cli getblockchaininfo` using `docker exec -it bitcoind_mainnet_1 bitcoin-cli getblockchaininfo` to e.g. check on the sync progress
 - known issue: when you need to restart an in-sync node on this branch, you'll have to temporarily remove the `-peercfilters` option, wait until the sync is done and then add it back
 - to serve cfilters on bitcoin testnet, simply uncomment the lines in the docker-compose file
